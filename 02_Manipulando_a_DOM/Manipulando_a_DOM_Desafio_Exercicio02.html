@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Curso Javascript - Módulo 02 - Exercício 02</title>
+</head>
+<body>
+  <div id="app">
+    <button class="button">Criar</button>
+    <div class="square"></div>
+  </div>
+
+  <script>
+    btnElement = document.querySelector('.button')
+    squaresElement = document.querySelector('.square')
+
+    function getRandomColor(){
+      var letters = "0123456789abcdef"
+      var color = "#"
+      for(i = 0; i < 6; i++){
+        color += letters[Math.floor(Math.random() * 16)]
+      }
+      return color
+    }
+
+    btnElement.onclick = function(){
+      var square = document.createElement('div')
+      square.style.width = '100px'
+      square.style.height = '100px'
+      square.style.backgroundColor = '#f00'
+
+      square.onmouseover = function(){
+        square.style.backgroundColor = getRandomColor()
+      }
+
+      squaresElement.appendChild(square)
+    }
+
+  </script>
+</body>
+</html>

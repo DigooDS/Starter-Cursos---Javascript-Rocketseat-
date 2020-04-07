@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Curso Javascript - Módulo 02 - Exercício 04</title>
+</head>
+<body>
+  <input type="text" name="name">
+  <button onClick="add()">Adicionar</button>
+  <ul id="ul"></ul>
+
+
+  <script>
+    
+    var names = ["Diego", "Gabriel", "Lucas"]
+
+    var ulElement = document.querySelector('#ul')
+    var inputElement = document.querySelector('input')
+    
+    function addItem(texto){
+      liElement = document.createElement('li')
+      var textElement = document.createTextNode(texto)
+
+      liElement.appendChild(textElement)
+      ulElement.appendChild(liElement)
+    }
+
+    function add(){
+      addItem(inputElement.value)
+      inputElement.value = ""
+    }
+
+    for(name of names){
+      addItem(name)
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Assincrono Desafio - Exercício02</title>
+</head>
+<body>
+  
+  <div id="app">
+
+    <input type="text" class="user">
+    <button onclick="listRepositories()">Adicionar</button>
+    <ul></ul>
+  
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    
+
+    var listElement = document.querySelector('#app ul')
+    var inputElement = document.querySelector('#app input')
+    
+    function renderRepositories(repositories){
+      for(repo of repositories){
+        var textElement = document.createTextNode(repo.name)
+        var liElement = document.createElement('li')
+
+        liElement.appendChild(textElement)
+        listElement.appendChild(liElement)
+
+        inputElement.value = ""
+      }
+    }
+
+    function listRepositories(){
+      var user = inputElement.value
+      if(!user) return
+        axios.get('https://api.github.com/users/' + user + '/repos')
+          .then(function(response){
+            renderRepositories(response.data)
+          })
+      
+    }
+
+  </script>
+
+</body>
+</html>

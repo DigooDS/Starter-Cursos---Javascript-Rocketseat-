@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Curso Javascript - Módulo 02 - Exercício 01</title>
+</head>
+<body>
+  <div id="app">
+    <button class="square">Criar</button>
+  </div>
+
+
+  <script>
+    
+    var btn = document.querySelector('.square') 
+    
+    btn.onclick = function(){
+      var divElement = document.createElement('div')
+    
+      divElement.style.width = '100px'
+      divElement.style.height = '100px'
+      divElement.style.backgroundColor = '#f00'
+
+      var containerElement = document.querySelector('#app')
+      containerElement.appendChild(divElement)
+    }    
+
+  </script>
+</body>
+</html>

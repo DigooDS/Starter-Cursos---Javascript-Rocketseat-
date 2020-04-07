@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Curso Javascript - Módulo 02 - Exercício 03</title>
+</head>
+<body>
+
+  <ul id="ul"></ul>
+
+
+  <script>
+    var names = ["Diego", "Gabriel", "Lucas"]
+
+    ulElement = document.querySelector('#ul')
+
+    for(name of names){
+      var listElements = document.createElement('li')
+      var textElement = document.createTextNode(name)
+      listElements.appendChild(textElement)
+      ulElement.appendChild(listElements)
+    }   
+  
+  </script>
+</body>
+</html>
